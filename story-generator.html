@@ -11,158 +11,25 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Comic Neue", "Comic Sans MS", cursive, sans-serif;
-      background: linear-gradient(135deg, #ffd6e8, #c5f5ff);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 720px;
-      background: white;
-      border-radius: 24px;
-      padding: 32px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2.3rem;
-      color: #ff6f91;
-      margin-bottom: 8px;
-    }
-
-    .subtitle {
-      text-align: center;
-      color: #555;
-      margin-bottom: 28px;
-      font-size: 1.05rem;
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 6px;
-      color: #333;
-    }
-
-    input,
-    select {
-      width: 100%;
-      padding: 14px;
-      border-radius: 12px;
-      border: 2px solid #ff6f91;
-      font-size: 1rem;
-      margin-bottom: 18px;
-    }
-
-    input:focus,
-    select:focus {
-      outline: none;
-      border-color: #ff9671;
-    }
-
-    button {
-      width: 100%;
-      padding: 16px;
-      background: linear-gradient(135deg, #ff6f91, #ff9671);
-      border: none;
-      border-radius: 14px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: white;
-      cursor: pointer;
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
-
-    button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-    }
-
-    button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
-    }
-
-    .loading {
-      margin-top: 24px;
-      text-align: center;
-      color: #ff6f91;
-      font-weight: bold;
-    }
-
-    .spinner {
-      width: 36px;
-      height: 36px;
-      border: 4px solid #eee;
-      border-top: 4px solid #ff6f91;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 12px auto;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .error {
-      margin-top: 20px;
-      padding: 14px;
-      background: #ffe5e5;
-      border: 2px solid #ff6f91;
-      border-radius: 12px;
-      color: #b00020;
-      text-align: center;
-      font-weight: bold;
-    }
-
-    .story-container {
-      margin-top: 28px;
-      padding: 26px;
-      background: #fff0f6;
-      border-radius: 18px;
-      border: 2px solid #ff6f91;
-    }
-
-    .story-title {
-      text-align: center;
-      font-size: 1.7rem;
-      color: #ff6f91;
-      margin-bottom: 14px;
-    }
-
-    .story-text {
-      white-space: pre-wrap;
-      line-height: 1.75;
-      font-size: 1.05rem;
-      color: #333;
-    }
-
-    @media (max-width: 500px) {
-      .container {
-        padding: 22px;
-      }
-
-      h1 {
-        font-size: 1.9rem;
-      }
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Comic Neue", "Comic Sans MS", cursive; background: linear-gradient(135deg, #ffd6e8, #c5f5ff); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+    .container { width: 100%; max-width: 720px; background: white; border-radius: 24px; padding: 32px; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
+    h1 { text-align: center; font-size: 2.3rem; color: #ff6f91; margin-bottom: 8px; }
+    .subtitle { text-align: center; color: #555; margin-bottom: 28px; font-size: 1.05rem; }
+    label { display: block; font-weight: bold; margin-bottom: 6px; color: #333; }
+    input, select { width: 100%; padding: 14px; border-radius: 12px; border: 2px solid #ff6f91; font-size: 1rem; margin-bottom: 18px; }
+    input:focus, select:focus { outline: none; border-color: #ff9671; }
+    button { width: 100%; padding: 16px; background: linear-gradient(135deg, #ff6f91, #ff9671); border: none; border-radius: 14px; font-size: 1.2rem; font-weight: bold; color: white; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+    button:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.25); }
+    button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+    .loading { margin-top: 24px; text-align: center; color: #ff6f91; font-weight: bold; }
+    .spinner { width: 36px; height: 36px; border: 4px solid #eee; border-top: 4px solid #ff6f91; border-radius: 50%; animation: spin 1s linear infinite; margin: 12px auto; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .error { margin-top: 20px; padding: 14px; background: #ffe5e5; border: 2px solid #ff6f91; border-radius: 12px; color: #b00020; text-align: center; font-weight: bold; }
+    .story-container { margin-top: 28px; padding: 26px; background: #fff0f6; border-radius: 18px; border: 2px solid #ff6f91; }
+    .story-title { text-align: center; font-size: 1.7rem; color: #ff6f91; margin-bottom: 14px; }
+    .story-text { white-space: pre-wrap; line-height: 1.75; font-size: 1.05rem; color: #333; }
+    @media (max-width: 500px) { .container { padding: 22px; } h1 { font-size: 1.9rem; } }
   </style>
 </head>
 
@@ -181,14 +48,8 @@
       const [error, setError] = useState("");
 
       const generateStory = async () => {
-        if (!topic.trim()) {
-          setError("Please enter a story topic ✨");
-          return;
-        }
-
-        setLoading(true);
-        setError("");
-        setStory("");
+        if (!topic.trim()) { setError("Please enter a story topic ✨"); return; }
+        setLoading(true); setError(""); setStory("");
 
         try {
           const response = await fetch("/api/generateStory", {
@@ -198,18 +59,10 @@
           });
 
           const data = await response.json();
-
-          if (data.story) {
-            setStory(data.story);
-          } else {
-            setError(data.error || "Something went wrong. Try again!");
-          }
-        } catch (err) {
-          console.error(err);
-          setError("Unable to reach the story service.");
-        } finally {
-          setLoading(false);
-        }
+          if (data.story) { setStory(data.story); } 
+          else { setError(data.error || "Something went wrong. Try again!"); }
+        } catch (err) { console.error(err); setError("Unable to reach the story service."); }
+        finally { setLoading(false); }
       };
 
       return (
@@ -218,15 +71,10 @@
           <p className="subtitle">Create magical stories in seconds</p>
 
           <label>Story topic</label>
-          <input
-            type="text"
-            placeholder="A brave little robot..."
-            value={topic}
-            onChange={(e) => setTopic(e.target.value)}
-          />
+          <input type="text" placeholder="A brave little robot..." value={topic} onChange={(e)=>setTopic(e.target.value)}/>
 
           <label>Age group</label>
-          <select value={ageGroup} onChange={(e) => setAgeGroup(e.target.value)}>
+          <select value={ageGroup} onChange={(e)=>setAgeGroup(e.target.value)}>
             <option value="3-5">3–5 years</option>
             <option value="5-7">5–7 years</option>
             <option value="8-10">8–10 years</option>
@@ -234,7 +82,7 @@
           </select>
 
           <label>Story theme</label>
-          <select value={theme} onChange={(e) => setTheme(e.target.value)}>
+          <select value={theme} onChange={(e)=>setTheme(e.target.value)}>
             <option value="adventure">Adventure</option>
             <option value="friendship">Friendship</option>
             <option value="magical">Magical</option>
@@ -243,25 +91,11 @@
             <option value="bedtime">Bedtime</option>
           </select>
 
-          <button onClick={generateStory} disabled={loading}>
-            {loading ? "Creating magic..." : "✨ Generate Story ✨"}
-          </button>
+          <button onClick={generateStory} disabled={loading}>{loading ? "Creating magic..." : "✨ Generate Story ✨"}</button>
 
-          {loading && (
-            <div className="loading">
-              <div className="spinner"></div>
-              Writing your story...
-            </div>
-          )}
-
+          {loading && <div className="loading"><div className="spinner"></div>Writing your story...</div>}
           {error && <div className="error">{error}</div>}
-
-          {story && !loading && (
-            <div className="story-container">
-              <div className="story-title">Your Story</div>
-              <div className="story-text">{story}</div>
-            </div>
-          )}
+          {story && !loading && <div className="story-container"><div className="story-title">Your Story</div><div className="story-text">{story}</div></div>}
         </div>
       );
     }
