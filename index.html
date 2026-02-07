@@ -52,7 +52,7 @@
         setLoading(true); setError(""); setStory("");
 
         try {
-          const response = await fetch("/api/generateStory", {
+          const response = await fetch("/api/index", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ topic, ageGroup, theme })
